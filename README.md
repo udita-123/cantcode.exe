@@ -4,6 +4,8 @@ WEBSITE LINK: https://mealink.lovable.app/
 
 
 MEALINK
+
+
 Project Overview
 
 This project was built for SDG 2 – Zero Hunger during a hackathon.

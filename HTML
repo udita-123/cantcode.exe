@@ -1,0 +1,28 @@
+Food Donation Matching App
+
+Project Overview
+This project was built for *MEALINK* during a hackathon.  
+It is a simple but impactful web site that connects donors (restaurants, canteens, households) with NGOs / needy communities for donating surplus food.  
+
+Features
+- *Donate Food* → Donors can post available surplus food.  
+- *View Donations* → NGOs can see available food donations.  
+- *Register NGOs* → NGOs can register with their name and location.  
+- *Find Matches* → NGOs can view the most suitable donations based on location & food type.  
+- *Hackathon Ready* → Lightweight (no external DB needed).  
+- *Mobile Access* → Can be viewed on phone via USB or Wi-Fi.  
+
+Tech Stack:
+Frontend (Website UI): Responsive, AI-assisted website design (HTML, CSS, JS) for donor & NGO interaction.
+Backend (APIs): FastAPI
+ – manages donations, NGOs, and matching endpoints.
+Database: In-memory (Python lists/dictionaries) – lightweight storage for hackathon prototyping (can scale to MongoDB/Postgres later).
+Optional AI (future-ready): Ollama
+ + RAG + VectorDB (FAISS/MongoDB Atlas) for AI-powered matching & chatbot support.
+Setup Instructions
+
+1. Install Requirements
+Unzip the project and install dependencies:
+
+```bash
+pip install -r requirements.txt

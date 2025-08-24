@@ -32,7 +32,20 @@ Frontend (Website UI): Responsive web interface (HTML, CSS, JS) for donor & NGO 
 Backend (APIs): FastAPI
  – REST APIs to manage donations, NGOs, and matches.
 
-Database: In-memory (Python lists/dictionaries) – lightweight storage (can later scale to MongoDB/Postgres).
+Programming Language: Python 3
 
-Optional AI (future-ready): Ollama
- + RAG + VectorDB (FAISS/MongoDB Atlas) for intelligent NGO–donation matching and chatbot support.
+Deep Learning Framework:
+
+PyTorch: Model loading, inference (model.eval(), torch.no_grad()), tensor operations, softmax, top-k predictions
+
+torchvision: Image preprocessing (Resize, ToTensor, Normalize)
+
+Image Processing: PIL (Pillow) – Open and convert images (Image.open().convert("RGB"))
+
+Utilities:
+
+argparse: Command-line arguments
+
+json: Load class labels (classes.json)
+
+Project-specific: Custom FoodClassifier model (defined in model_def.py) wrapping a CNN backbone (ResNet, VGG, EfficientNet)

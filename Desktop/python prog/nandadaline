@@ -1,0 +1,65 @@
+import numpy as np
+
+# Delta Rule Training Function
+def train_adaline(X, T, learning_rate=0.1, Es_target=1.4):
+    weights = np.zeros(X.shape[1])  # Initialize weights
+    bias = 0
+    epoch = 0
+
+    while True:
+        Es = 0
+        for x, t in zip(X, T):
+            y = np.dot(weights, x) + bias
+            error = t - y
+            weights += learning_rate * error * x
+            bias += learning_rate * error
+            Es += error**2
+
+        epoch += 1
+        print(f"Epoch {epoch}: Es = {Es:.4f}")
+
+        if Es <= Es_target:
+            break
+
+    return weights, bias
+
+# Test Function
+def test_adaline(X, weights, bias, name):
+    print(f"\n{name} Gate Results:")
+    for x in X:
+        y = np.dot(weights, x) + bias
+        output = 1 if y >= 0 else -1
+        print(f"Input: {x}, Output: {output} (Raw: {y:.2f})")
+
+# Input patterns (bipolar)
+X2 = np.array([
+    [-1, -1],
+    [-1,  1],
+    [ 1, -1],
+    [ 1,  1]
+])
+
+# For NOT gate (single input: A)
+X1 = np.array([
+    [-1],
+    [-1],
+    [ 1],
+    [ 1]
+])
+
+# Targets (bipolar)
+T_NAND = np.array([1, 1, 1, -1])
+T_AND  = np.array([-1, -1, -1, 1])
+T_NOT  = np.array([1, 1, -1, -1])  # NOT A
+
+# Train and test NAND
+w_nand, b_nand = train_adaline(X2, T_NAND)
+test_adaline(X2, w_nand, b_nand, "NAND")
+
+# Train and test AND
+w_and, b_and = train_adaline(X2, T_AND)
+test_adaline(X2, w_and, b_and, "AND")
+
+# Train and test NOT (only input A)
+w_not, b_not = train_adaline(X1, T_NOT)
+test_adaline(X1, w_not, b_not, "NOT")
